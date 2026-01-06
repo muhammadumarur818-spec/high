@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Quran for Kids</title>
+    <!-- Google Fonts for child-friendly fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Bubblegum+Sans&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS for styling the website */
+        body {
+            font-family: 'Bubblegum Sans', cursive; /* Child-friendly font */
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #87CEEB, #FFD700); /* Bright sky blue to yellow gradient */
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        
+        header {
+            background-color: #4CAF50; /* Green for Islamic theme */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3em;
+            margin: 0;
+        }
+        
+        /* Islamic theme elements: simple mosque icon and stars */
+        header::before {
+            content: "🕌"; /* Mosque emoji */
+            font-size: 2em;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+        
+        header::after {
+            content: "⭐🌙"; /* Star and crescent moon */
+            font-size: 1.5em;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+        
+        nav {
+            background-color: #FF6347; /* Tomato red for fun */
+            padding: 10px;
+            text-align: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: #FFA500; /* Orange buttons */
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #FFD700; /* Yellow on hover */
+        }
+        
+        section {
+            padding: 40px;
+            text-align: center;
+            min-height: 100vh;
+            display: none; /* Hide sections by default */
+        }
+        
+        section.active {
+            display: block; /* Show active section */
+        }
+        
+        .home {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            margin: 20px;
+        }
+        
+        .learn-quran, .surahs, .contact {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            margin: 20px;
+        }
+        
+        h2 {
+            font-size: 2.5em;
+            color: #4CAF50;
+        }
+        
+        p {
+            font-size: 1.5em;
+            line-height: 1.6;
+        }
+        
+        button, .btn {
+            font-size: 1.5em;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 15px;
+            background-color: #FF69B4; /* Hot pink for fun */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover, .btn:hover {
+            background-color: #FF1493; /* Deeper pink on hover */
+        }
+        
+        .letters, .surahs-list, .lessons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .letter, .surah, .lesson {
+            background-color: #FFE4B5; /* Moccasin for light background */
+            padding: 20px;
+            border-radius: 15px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .letter h3, .surah h3, .lesson h3 {
+            color: #8B4513; /* Saddle brown */
+        }
+        
+        /* Floating WhatsApp button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366; /* WhatsApp green */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 2em;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E; /* Darker green */
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+            section {
+                padding: 20px;
+            }
+            .letters, .surahs-list, .lessons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .letter, .surah, .lesson {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with title and Islamic elements -->
+    <header>
+        <h1>Learn Quran for Kids</h1>
+    </header>
+    
+    <!-- Navigation menu -->
+    <nav>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('learn-quran')">Learn Quran</a>
+        <a href="#" onclick="showSection('surahs')">Surahs</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
+    </nav>
+    
+    <!-- Home section -->
+    <section id="home" class="home active">
+        <h2>Welcome to Quran Learning!</h2>
+        <p>Assalamu Alaikum! This is a fun place to learn the Quran. Click on the menu to start!</p>
+        <button onclick="showSection('learn-quran')">Start Learning</button>
+    </section>
+    
+    <!-- Learn Quran section with subsections -->
+    <section id="learn-quran" class="learn-quran">
+        <h2>Learn Quran</h2>
+        <p>Choose what you want to learn:</p>
+        <div class="lessons">
+            <div class="lesson">
+                <h3>Arabic Letters</h3>
+                <p>Learn the basics of Arabic letters.</p>
+                <button onclick="showLetters()">Learn Letters</button>
+            </div>
+            <div class="lesson">
+                <h3>Short Surahs</h3>
+                <p>Read and memorize short Surahs.</p>
+                <button onclick="showSection('surahs')">View Surahs</button>
+            </div>
+            <div class="lesson">
+                <h3>Basic Islamic Lessons</h3>
+                <p>Learn about Islam in a simple way.</p>
+                <button onclick="showLessons()">Learn Basics</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Surahs section -->
+    <section id="surahs" class="surahs">
+        <h2>Short Surahs</h2>
+        <p>Here are some short Surahs to learn:</p>
+        <div class="surahs-list">
+            <div class="surah">
+                <h3>Surah Al-Ikhlas</h3>
+                <p>قُلْ هُوَ اللَّهُ أَحَدٌ</p>
+                <p>Say, "He is Allah, the One."</p>
+            </div>
+            <div class="surah">
+                <h3>Surah An-Nas</h3>
+                <p>قُلْ أَعُوذُ بِرَبِّ النَّاسِ</p>
+                <p>Say, "I seek refuge in the Lord of mankind."</p>
+            </div>
+            <div class="surah">
+                <h3>Surah Al-Falaq</h3>
+                <p>قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ</p>
+                <p>Say, "I seek refuge in the Lord of the dawn."</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Want to learn more? Contact us!</p>
+        <a href="mailto:muhammadumarur818@gmail.com" class="btn">Email Us</a>
+        <p>Or use the WhatsApp button below!</p>
+    </section>
+    
+    <!-- Floating WhatsApp button -->
+    <button class="whatsapp-btn" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </button>
+    
+    <script>
+        // JavaScript for navigation and interactions
+        
+        // Function to show a specific section
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+        
+        // Function to open WhatsApp with pre-written message
+        function openWhatsApp() {
+            const phoneNumber = "923044083802"; // WhatsApp number without + or spaces
+            const message = "Assalamu Alaikum, I want to learn about Quran classes for kids.";
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank'); // Open in new tab
+        }
+        
+        // Placeholder functions for lessons (can be expanded)
+        function showLetters() {
+            alert("Arabic Letters: Coming soon! For now, imagine fun letters like ا ب ت");
+        }
+        
+        function showLessons() {
+            alert("Basic Islamic Lessons: Learn about Allah, Prophet Muhammad, and good deeds!");
+        }
+        
+        // Set home as active on load
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
